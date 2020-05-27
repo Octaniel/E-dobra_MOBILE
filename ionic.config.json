@@ -1,0 +1,7 @@
+{
+  "name": "e-dobra",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}
