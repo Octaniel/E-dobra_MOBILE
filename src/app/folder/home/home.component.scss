@@ -1,0 +1,40 @@
+ion-content{
+  --background: whitesmoke;
+}
+ion-button.b1{
+  --background: #ffffff;
+  --border-radius: 30px;
+  --border-color: #393939;
+  --border-width: 0.5px;
+}
+ion-button.b2{
+  --background: #22749a;
+  --border-radius: 20px;
+  --border-color: #393939;
+  --border-width: 0.5px;
+}
+ion-button.b3{
+  --background: #5d5e5e;
+  --border-radius: 20px;
+  --border-color: #393939;
+  --border-width: 0.5px;
+}
+.vf{
+  margin-top: 17px;
+}
+.p1{
+  margin-top: -2px;
+  font-size: 25px;
+  font-weight: bold;
+}
+.p2{
+  font-size: 35px;
+  font-family: none;
+  margin-top: -25px;
+}
+.p3{
+  margin-top: -45px;
+  margin-left: 10px;
+  font: small-caption;
+  font-size: 15px;
+}

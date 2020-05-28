@@ -11,5 +11,7 @@ export class Pessoa{
 }
 export class Banco{
     id: number;
-    nome: string;  
+    nome: string;
+    email: string;
+    nif: string;
 }

@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, Validators, FormBuilder, FormControl } from '@angular/forms';
+import {BancoService} from '../../banco/banco.service';
+import {ErrorHandlerService} from '../../core/error-handler.service';
 
 @Component({
   selector: 'app-register-form',
@@ -9,32 +11,34 @@ import { FormGroup, Validators, FormBuilder, FormControl } from '@angular/forms'
 export class RegisterFormComponent implements OnInit {
 
   formulario: FormGroup;
+  bancos = [];
 
   constructor(
     private formBuilder: FormBuilder,
+    private bancoService: BancoService,
+    private errorHandler: ErrorHandlerService,
+
   ) { }
 
-  ngOnInit() {}
+  ngOnInit() {
+    this.configurarFormulario();
+    this.carregarCategorias();
+  }
 
   configurarFormulario() {
     this.formulario = this.formBuilder.group({
-      codigo: [],
-      tipo: [ 'RECEITA', Validators.required ],
-      dataVencimento: [ null, Validators.required ],
-      dataPagamento: [],
-      descricao: [null, [ this.validarObrigatoriedade, this.validarTamanhoMinimo(5) ]],
-      valor: [ null, Validators.required ],
-      pessoa: this.formBuilder.group({
-        codigo: [ null, Validators.required ],
+      id: [],
+      nome: [null, [ this.validarObrigatoriedade, this.validarTamanhoMinimo(5) ]],
+      email: [  null, [ this.validarObrigatoriedade, this.validarEmail() ]  ],
+      nConta: [ null, Validators.required ],
+      morada: [null, Validators.required],
+      telemovel: [null, Validators.required],
+      nif: [ null, [ this.validarObrigatoriedade, this.validarTamanhoMinimo(9) ] ],
+      dataNascimento: [ null, Validators.required ],
+      banco: this.formBuilder.group({
+        id: [ null, Validators.required ],
         nome: []
       }),
-      categoria: this.formBuilder.group({
-        codigo: [ null, Validators.required ],
-        nome: []
-      }),
-      observacao: [],
-      anexo: [],
-      urlAnexo: []
     });
   }
 
@@ -47,5 +51,21 @@ export class RegisterFormComponent implements OnInit {
       return (!input.value || input.value.length >= valor) ? null : { tamanhoMinimo: { tamanho: valor } };
     };
   }
+  validarEmail() {
+    return (input: FormControl) => {
+      return (!input.value || input.value.toString().includes("@")) ? null : { email: true };
+    };
+  }
 
+  carregarCategorias() {
+    return this.bancoService.listarTodas()
+        .then(bancos => {
+          this.bancos = bancos
+              .map(c => ({ label: c.nome, value: c.codigo }));
+        })
+        .catch(erro => this.errorHandler.handle(erro));
+  }
+    registrar() {
+
+    }
 }

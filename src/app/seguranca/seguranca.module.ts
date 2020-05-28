@@ -1,4 +1,4 @@
-import { FormsModule } from '@angular/forms';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
@@ -13,17 +13,22 @@ import {CardModule} from 'primeng/card';
 import { RegisterFormComponent } from './register-form/register-form.component';
 import { InfoComponent } from './info/info.component';
 import {ProgressBarModule} from 'primeng/progressbar';
+import {SharedModule} from '../shared/shared.module';
+import {CalendarModule} from 'primeng/calendar';
 
 @NgModule({
-  imports: [
-    CommonModule,
-    FormsModule,
-    InputTextModule,
-    ButtonModule,
-    SegurancaRoutingModule,
-    CardModule,
-    ProgressBarModule
-  ],
+    imports: [
+        CommonModule,
+        FormsModule,
+        InputTextModule,
+        ButtonModule,
+        SegurancaRoutingModule,
+        CardModule,
+        ProgressBarModule,
+        ReactiveFormsModule,
+        SharedModule,
+        CalendarModule
+    ],
   declarations: [LoginFormComponent, RegisterFormComponent, InfoComponent],
   providers: [
     AuthGuard,

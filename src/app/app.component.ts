@@ -15,7 +15,7 @@ export class AppComponent implements OnInit {
   public appPages = [
     {
       title: 'Home',
-      url: '/folder/home',
+      url: '/folder',
       icon: 'home'
     },
     {
@@ -75,6 +75,6 @@ export class AppComponent implements OnInit {
   }
 
   exibindoNavbar() {
-    return this.router.url !== '/login';
+    return this.router.url !== '/user/login';
   }
 }
