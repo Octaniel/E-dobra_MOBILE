@@ -1,0 +1,7 @@
+<?xml version='1.0' encoding='utf-8'?>
+<resources>
+    <string name="app_name">E-dobra</string>
+    <string name="title_activity_main">E-dobra</string>
+    <string name="package_name">com.bsoftware.edobra</string>
+    <string name="custom_url_scheme">com.bsoftware.edobra</string>
+</resources>
