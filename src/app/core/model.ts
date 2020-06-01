@@ -15,3 +15,13 @@ export class Banco{
     email: string;
     nif: string;
 }
+export class Movimentacao {
+    id: number;
+    quantidadeSaldo:number;
+    codigoCliente: string;
+    nomeCliente: string;
+    cliente2: string;
+    tipoMovimentacao: string;
+    estilo: string;
+    dataCriacao: Date;
+}

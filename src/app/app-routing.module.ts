@@ -20,6 +20,9 @@ const routes: Routes = [
     {
         path: 'movimentacao',
         loadChildren: () => import('./movimentacao/movimentacao.module').then(m => m.MovimentacaoModule)
+    }, {
+        path: 'atividade',
+        loadChildren: () => import('./atividade/atividade.module').then(m => m.AtividadeModule)
     },
 
     {path: 'nao-autorizado', component: NaoAutorizadoComponent},

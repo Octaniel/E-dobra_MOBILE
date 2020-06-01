@@ -1,0 +1,140 @@
+<ion-header [translucent]="true">
+    <ion-toolbar>
+        <ion-buttons slot="start" style="margin-left: 10px">
+            <ion-back-button></ion-back-button>
+        </ion-buttons>
+        <ion-title>{{movimentacao.dataCriacao | date:'dd/MM/yyyy hh:mm'}}</ion-title>
+    </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+    <div class="container">
+        <div class="ui-g">
+            <div class="ui-g-12 ui-md-12 ui-fluid"></div>
+            <div class="ui-g-5 ui-md-5 ui-fluid"></div>
+            <div class="ui-g-2 ui-md-1 ui-fluid">
+                <ion-button style="width: 50px;height: 50px" class="b3" expand="block" fill="outline"><i
+                        class="fas fa-store fa-1x"
+                        style="color: #fdfafa"></i>
+                </ion-button>
+            </div>
+            <div class="ui-g-5 ui-md-5 ui-fluid"></div>
+            <div class="ui-g-12 ui-md-12 ui-fluid" style="margin-top: -20px">
+                <p class="p1">{{movimentacao.tipoMovimentacao=='DEBITO'?'Pagou':'Recebeu'}} {{movimentacao.quantidadeSaldo | number:'1.2-2'}} Dbs {{movimentacao.tipoMovimentacao=='DEBITO'?'a':'de'}} {{movimentacao.cliente2}}</p>
+            </div>
+            <ion-item-divider style="background-color: #f7fbf7;"></ion-item-divider>
+            <ion-item-divider class="id1">
+                <div class="ui-g-12 ui-md-12 ui-fluid">
+                    <p style="color:#797b7b;">De:</p>
+                    <div class="ui-g-6 ui-md-6 ui-fluid" style="margin-top: -30px">
+                        <p style="color: #505050;font-weight: bold;">Saldo E-dobra</p>
+                    </div>
+                    <div class="ui-g-6 ui-md-6 ui-fluid" style="margin-top: -30px">
+                        <p style="color:#797b7b;text-align: end">{{movimentacao.quantidadeSaldo | number:'1.2-2'}} Dbs</p>
+                    </div>
+                </div>
+            </ion-item-divider>
+            <ion-item-divider class="id1">
+                <div class="ui-g-12 ui-md-12 ui-fluid">
+                    <p style="color:#797b7b;">Tipo Transação:</p>
+                    <div class="ui-g-12 ui-md-12 ui-fluid" style="margin-top: -30px">
+                        <p style="color: #505050;font-weight: bold;">{{movimentacao.estilo}}</p>
+                    </div>
+                </div>
+            </ion-item-divider>
+            <ion-item-divider class="id1" style="height: 80px;">
+                <div class="ui-g">
+                    <div class="ui-g-12 ui-md-12">
+                        <p class="p2">DETALHES DA COMPRA</p>
+                    </div>
+                    <div class="ui-g-8 ui-md-8 ui-fluid" style="margin-top: -30px">
+                        <p style="color: #505050;font-weight: bold;">Padaria</p>
+                    </div>
+                    <div class="ui-g-4 ui-md-4" style="margin-top: -30px">
+                        <p style="color:#797b7b;text-align: end">{{movimentacao.quantidadeSaldo | number:'1.2-2'}} Dbs</p>
+                    </div>
+                    <div class="ui-g-8 ui-md-8" style="margin-top: -30px">
+                        <p style="color: #505050;font-weight: bold;">Disconto</p>
+                    </div>
+                    <div class="ui-g-4 ui-md-4 ui-fluid" style="margin-top: -30px">
+                        <p style="color:#797b7b;text-align: end">0,00 Dbs</p>
+                    </div>
+                </div>
+            </ion-item-divider>
+            <ion-item-divider class="id1" style="height: 100px;">
+                <div class="ui-g">
+                    <div class="ui-g-8 ui-md-8 ui-fluid">
+                        <p style="color: #505050;font-size: 12px">Montante</p>
+                    </div>
+                    <div class="ui-g-4 ui-md-4">
+                        <p style="color:#797b7b;text-align: end;font-size: 12px">{{movimentacao.quantidadeSaldo | number:'1.2-2'}} Dbs</p>
+                    </div>
+                    <div class="ui-g-8 ui-md-8" style="margin-top: -30px">
+                        <p style="color: #505050;font-size: 12px">Envio</p>
+                    </div>
+                    <div class="ui-g-4 ui-md-4 ui-fluid" style="margin-top: -30px">
+                        <p style="color:#797b7b;text-align: end;font-size: 12px">0,00 Dbs</p>
+                    </div>
+                    <div class="ui-g-8 ui-md-8" style="margin-top: -30px">
+                        <p style="color: #505050;font-size: 12px">Imposto</p>
+                    </div>
+                    <div class="ui-g-4 ui-md-4 ui-fluid" style="margin-top: -30px">
+                        <p style="color:#797b7b;text-align: end;font-size: 12px">0,00 Dbs</p>
+                    </div>
+                    <div class="ui-g-8 ui-md-8" style="margin-top: -30px">
+                        <p style="color: #505050;font-size: 12px">Total</p>
+                    </div>
+                    <div class="ui-g-4 ui-md-4 ui-fluid" style="margin-top: -30px">
+                        <p style="color:#797b7b;text-align: end;font-size: 12px">{{movimentacao.quantidadeSaldo | number:'1.2-2'}} Dbs</p>
+                    </div>
+                </div>
+            </ion-item-divider>
+            <ion-item-divider class="id1" style="height: 60px;">
+                <div class="ui-g">
+                    <div class="ui-g-8 ui-md-8">
+                        <p style="color: #505050;font-size: 11px">Comissão</p>
+                    </div>
+                    <div class="ui-g-4 ui-md-4 ui-fluid">
+                        <p style="color:#797b7b;text-align: end;">0,00 Dbs</p>
+                    </div>
+                    <div class="ui-g-8 ui-md-8" style="margin-top: -30px;width: 215px;">
+                        <p style="color: #0d0d0d;font-size: 12px;font-weight: bold">Total</p>
+                    </div>
+                    <div class="ui-g-4 ui-md-4 ui-fluid" style="margin-top: -30px">
+                        <p style="color:#0d0d0d;text-align: end;font-weight: bold">{{movimentacao.quantidadeSaldo | number:'1.2-2'}} Dbs</p>
+                    </div>
+                </div>
+            </ion-item-divider>
+            <ion-item-divider class="id1" style="height: 120px;">
+                <div class="ui-g">
+                    <div class="ui-g-12 ui-md-12" style="margin-top: 20px">
+                        <p class="p2">{{movimentacao.cliente2}} e você</p>
+                    </div>
+                    <div class="ui-g-2 ui-md-2" style="margin-top: -5px">
+                        <i style="color:#138888;text-align: end" class="fas fa-sort-amount-up-alt"></i>
+                    </div>
+                    <div class="ui-g-8 ui-md-8 ui-fluid" style="margin-top: -20px;margin-left: -20px">
+                        <p style="color: #505050;font-weight: bold;">Contactar Udemy</p>
+                    </div>
+                    <div class="ui-g-2 ui-md-2" style="margin-top: -5px;text-align: -webkit-right;width: 74px">
+                        <i style="color:#797b7b;text-align: end" class="fas fa-angle-right"></i>
+                    </div>
+                    <div class="ui-g-2 ui-md-2 ui-fluid" style="margin-top: -5px">
+                        <i style="color:#138888;text-align: end" class="fas fa-car"></i>
+                    </div>
+                    <div class="ui-g-8 ui-md-8" style="margin-top: -20px;margin-left: -20px">
+                        <p style="color: #505050;font-weight: bold;">Ver outras transações</p>
+                    </div>
+                    <div class="ui-g-2 ui-md-2 ui-fluid" style="margin-top: -5px;text-align: -webkit-right;;width: 74px">
+                        <i style="color:#797b7b;text-align: end" class="fas fa-angle-right"></i>
+                    </div>
+                </div>
+            </ion-item-divider>
+
+            <div class="ui-g-12 ui-md-12 ui-fluid" style="text-align: center;color: #7b7b7a;font-size: 12px">
+                <p>Id da transação:{{movimentacao.id}}</p>
+                <p style="margin-top: -10px;">Transação realizada às {{movimentacao.dataCriacao | date:'hh:mm:ss'}}</p>
+            </div>
+        </div>
+    </div>
+</ion-content>

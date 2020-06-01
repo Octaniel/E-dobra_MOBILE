@@ -1,38 +1,38 @@
 <ion-header [translucent]="true">
     <ion-toolbar>
         <ion-buttons slot="start" style="margin-left: 10px">
-            <i class="fas fa-sticky-note fa-2x" ></i>
+            <i class="fas fa-sticky-note fa-1x"></i>
         </ion-buttons>
         <ion-title>Home</ion-title>
         <ion-buttons slot="end" style="margin-right: 10px">
-            <i class="fas fa-cog fa-2x" ></i>
+            <i class="fas fa-cog fa-1x"></i>
         </ion-buttons>
     </ion-toolbar>
 </ion-header>
 
-<ion-content [fullscreen]="true" color="whitesmoke">
+<ion-content [fullscreen]="true">
 
     <div class="container">
         <div class="ui-g">
 
             <div class="ui-g-6 ui-md-6 ui-fluid">
-                <p>Pagamento rápido</p>
+                <p>Enviar novamente</p>
             </div>
             <div class="ui-g-5 ui-md-5 ui-fluid">
             </div>
             <div class="ui-g-1 ui-md-1 ui-fluid">
                 <i class="fas fa-arrow-right vf"></i>
             </div>
-            <div class="ui-g-3 ui-md-3 ui-fluid">
-                <ion-button style="height: 70px;width: 70px;" class="b1" size="large" expand="block" fill="outline"><i class="fas fa-qrcode fa-1x"
-                                                                                     style="color: #0d0d0d"></i>
-                </ion-button>
+
+            <div *ngFor="let moviTD of clientesRemitenteMovimentacoes" class="ui-g">
+                <div class="ui-g-2 ui-md-2 ui-fluid" style="margin-top: -25px;">
+                    <ion-button class="b4" size="large" expand="block" fill="outline"><p
+                            style="color: white">{{moviTD.resumoNome}}</p>
+                    </ion-button>
+                    <p class="p4">{{moviTD.nome}}</p>
+                </div>
             </div>
-            <div class="ui-g-3 ui-md-3 ui-fluid">
-                <ion-button style="height: 70px;width: 70px;" class="b1" size="large" expand="block" fill="outline"><i class="fas fa-search fa-1x"
-                                                                                     style="color: #0d0d0d"></i>
-                </ion-button>
-            </div>
+
             <div class="ui-g-12 ui-md-12 ui-fluid">
                 <ion-card>
                     <ion-card-content>
@@ -47,78 +47,44 @@
                             </div>
                         </div>
                         <div class="ui-g">
-                            <div class="ui-g-9 ui-md-9 ui-fluid">
-                                <p class="p2">58,98Dbs</p>
+                            <div class="ui-g-12 ui-md-12 ui-fluid">
+                                <p class="p2">{{saldo | number:'1.2-2'}} Dbs</p>
+                                <p style="color: #7b7a79;margin-top: -10px">Disponivel</p>
                             </div>
                         </div>
                     </ion-card-content>
                 </ion-card>
             </div>
 
-            <div class="ui-g-6 ui-md-6 ui-fluid">
+            <div class="ui-g-6 ui-md-6 ui-fluid" routerLink="/atividade/listar">
                 <p>A sua atividade</p>
             </div>
-            <div class="ui-g-5 ui-md-5 ui-fluid">
+            <div class="ui-g-5 ui-md-5 ui-fluid" routerLink="/atividade/listar">
             </div>
-            <div class="ui-g-1 ui-md-1 ui-fluid">
+            <div class="ui-g-1 ui-md-1 ui-fluid" routerLink="/atividade/listar">
                 <i class="fas fa-arrow-right vf"></i>
             </div>
 
-            <div class="ui-g-2 ui-md-1 ui-fluid">
-                <ion-button style="width: 50px;height: 50px" class="b3" expand="block" fill="outline"><i class="fas fa-store fa-1x"
-                                                                                                         style="color: #fdfafa"></i>
-                </ion-button>
-            </div>
-            <div class="ui-g-6 ui-md-9 ui-fluid">
-                <p style="margin-top: 5px;margin-left: 10px">Udemy</p>
-            </div>
-            <div class="ui-g-4 ui-md-2 ui-fluid">
-                <p class="vf">- 9,99 Dbs</p>
-            </div>
-            <div class="ui-g-2 ui-md-1 ui-fluid">
-            </div>
-            <div class="ui-g-8 ui-md-8 ui-fluid">
-                <p class="p3">Compra</p>
-            </div>
-            <div class="ui-g-2 ui-md-3 ui-fluid">
-            </div>
-
-            <div class="ui-g-2 ui-md-1 ui-fluid">
-                <ion-button style="width: 50px;height: 50px" class="b3" expand="block" fill="outline"><i class="fas fa-store fa-1x"
-                                                                                                         style="color: #fdfafa"></i>
-                </ion-button>
-            </div>
-            <div class="ui-g-6 ui-md-9 ui-fluid">
-                <p style="margin-top: 5px;margin-left: 10px">Netflix.com</p>
-            </div>
-            <div class="ui-g-4 ui-md-2 ui-fluid">
-                <p class="vf">- 11,99 Dbs</p>
-            </div>
-            <div class="ui-g-2 ui-md-1 ui-fluid">
-            </div>
-            <div class="ui-g-8 ui-md-8 ui-fluid">
-                <p class="p3">Pagamento automatico</p>
-            </div>
-            <div class="ui-g-2 ui-md-3 ui-fluid">
-            </div>
-
-            <div class="ui-g-2 ui-md-1 ui-fluid">
-                <ion-button style="width: 50px;height: 50px" class="b3" expand="block" fill="outline"><i class="fas fa-store fa-1x"
-                                                                                             style="color: #fdfafa"></i>
-                </ion-button>
-            </div>
-            <div class="ui-g-6 ui-md-9 ui-fluid">
-                <p style="margin-top: 5px;margin-left: 10px">Netflix.com</p>
-            </div>
-            <div class="ui-g-4 ui-md-2 ui-fluid">
-                <p class="vf">- 11,99 Dbs</p>
-            </div>
-            <div class="ui-g-2 ui-md-1 ui-fluid">
-            </div>
-            <div class="ui-g-8 ui-md-8 ui-fluid">
-                <p class="p3">Pagamento automatico</p>
-            </div>
-            <div class="ui-g-2 ui-md-3 ui-fluid">
+            <div *ngFor="let movi of movimentacoes" class="ui-g">
+                <div class="ui-g-2 ui-md-1 ui-fluid">
+                    <ion-button style="width: 50px;height: 50px" class="b3" expand="block" fill="outline"><i
+                            class="fas fa-store fa-1x"
+                            style="color: #fdfafa"></i>
+                    </ion-button>
+                </div>
+                <div class="ui-g-6 ui-md-9 ui-fluid">
+                    <p style="margin-top: 5px;margin-left: 10px">{{movi.cliente2}}</p>
+                </div>
+                <div class="ui-g-4 ui-md-2 ui-fluid">
+                    <p class="vf"> {{movi.tipoMovimentacao == "DEBITO" ? '-' : '+'}} {{movi.quantidadeSaldo | number:'1.2-2'}} Dbs</p>
+                </div>
+                <div class="ui-g-2 ui-md-1 ui-fluid">
+                </div>
+                <div class="ui-g-8 ui-md-8 ui-fluid">
+                    <p style="{{movi.estilo==='Retirada'?'width:200px':''}}" class="p3">{{movi.estilo}}</p>
+                </div>
+                <div class="ui-g-2 ui-md-3 ui-fluid">
+                </div>
             </div>
 
         </div>
@@ -128,29 +94,33 @@
 
 <ion-footer class="ion-no-border">
     <ion-toolbar>
-        <ion-buttons slot="start" style="margin-left: 10px">
-            <div class="ui-g">
-                <ion-button routerLink="/movimentacao/transferir" style="width: 60px;height: 60px" class="ui-g-12 b2"
+        <div class="ui-g">
+            <div class="ui-g-3 ui-md-3 ui-fluid">
+
+                <ion-button style="width: 50px;height: 50px;margin-right: -35px" class="b1" size="large"
+                            expand="block" fill="outline"><i class="fas fa-qrcode fa-1x" style="color: #007ad9"></i>
+                </ion-button>
+                <label style="margin-left: 1px" class="l1">Ler/Pagar</label>
+            </div>
+            <div class="ui-g-3 ui-md-3 ui-fluid">
+                <ion-button routerLink="/movimentacao/transferir" style="width: 50px;height: 50px" class="b2"
                             size="large" expand="block" fill="outline"><i class="fas fa-sort-amount-up-alt fa-1x"
                                                                           style="color: #0d0d0d"></i></ion-button>
-                <label class="ui-g-12">Enviar</label>
+                <label class="l1">Enviar</label>
             </div>
-        </ion-buttons>
-        <ion-buttons>
-            <div class="ui-g">
-                <ion-button style="margin-left: 15px;width: 60px;height: 60px" class="ui-g-12 b2" size="large"
+            <div class="ui-g-3 ui-md-3 ui-fluid">
+                <ion-button style="margin-left: 15px;width: 50px;height: 50px" class="b2" size="large"
                             expand="block" fill="outline"><i class="fas fa-sort-amount-down-alt fa-1x"
                                                              style="color: #0d0d0d"></i></ion-button>
-                <label style="margin-left: 10px" class="ui-g-12">Solicitar</label>
+                <label style="margin-left: 16px" class="l1">Solicitar</label>
             </div>
-        </ion-buttons>
-        <ion-buttons slot="end">
-            <div class="ui-g">
-                <ion-button style="width: 60px;height: 60px;margin-right: -35px" class="ui-g-12 b1" size="large"
-                            expand="block" fill="outline"><i class="fas fa-ellipsis-h fa-1x" style="color: #0d0d0d"></i>
+            <div class="ui-g-3 ui-md-3 ui-fluid">
+                <ion-button style="width: 50px;height: 50px;margin-left: 20px" class="b1" size="large"
+                            expand="block" fill="outline"><i class="fas fa-ellipsis-h fa-1x" style="color: #007ad9"></i>
                 </ion-button>
-                <label style="margin-left: -10px" class="ui-g-12">Mais</label>
+                <label style="margin-left: 30px;" class="l1">Mais</label>
             </div>
-        </ion-buttons>
+        </div>
+
     </ion-toolbar>
 </ion-footer>

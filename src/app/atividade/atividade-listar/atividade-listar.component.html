@@ -1,0 +1,113 @@
+<ion-header [translucent]="true">
+    <ion-toolbar>
+        <ion-buttons slot="start" style="margin-left: 10px">
+            <ion-back-button></ion-back-button>
+        </ion-buttons>
+        <ion-title>Atividade</ion-title>
+        <ion-buttons slot="end" style="margin-right: 10px">
+            <i class="fas fa-cog fa-1x"></i>
+        </ion-buttons>
+    </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+
+    <div class="container">
+        <div class="ui-g">
+
+            <div class="ui-g-12 ui-g-12 ui-fluid">
+                <ion-item-divider class="id1">
+                    <div class="ui-g-1 ui-g-1 ui-fluid">
+                        <i class="fas fa-search"></i>
+                    </div>
+                    <div class="ui-g-11 ui-g-11 ui-fluid">
+                        <ion-input style="margin-left: -25px"
+                                   placeholder="Introduzir nome, e-mail, telemóvel, entre outros"></ion-input>
+                    </div>
+                </ion-item-divider>
+            </div>
+
+            <p-tabView (onChange)="mudarTab($event)">
+                <p-tabPanel header="Todas as tranzações">
+                    <div class="ui-g">
+                        <div class="ui-g-12 ui-md-12 ui-fluid" *ngFor="let movi of movimentacoes" [routerLink]="['/atividade/info', movi.id]">
+                            <p>{{movi.dataCriacao | date:'dd/MM/yyyy'}}</p>
+                            <div class="ui-g-2 ui-md-1 ui-fluid" style="margin-left: -20px;">
+                                <ion-button style="width: 50px;height: 50px" class="b3" expand="block" fill="outline"><i
+                                        class="fas fa-store fa-1x"
+                                        style="color: #fdfafa"></i>
+                                </ion-button>
+                            </div>
+                            <div class="ui-g-5 ui-md-9 ui-fluid">
+                                <p style="margin-top: 5px;margin-left: 15px">{{movi.cliente2}}</p>
+                            </div>
+                            <div class="ui-g-5 ui-md-2 ui-fluid" style="margin-left: 20px;">
+                                <p style="{{movi.tipoMovimentacao == 'DEBITO'? '': 'color:#499c5f'}}" class="vf"> {{movi.tipoMovimentacao == "DEBITO" ? '-' : '+'}} {{movi.quantidadeSaldo | number:'1.2-2'}} Dbs</p>
+                            </div>
+                            <div class="ui-g-2 ui-md-1 ui-fluid">
+                            </div>
+                            <div class="ui-g-8 ui-md-8 ui-fluid">
+                                <p style="{{movi.estilo==='Retirada'?'width:200px':''}}" class="p3">{{movi.estilo}}</p>
+                            </div>
+                            <div class="ui-g-2 ui-md-3 ui-fluid">
+                            </div>
+                        </div>
+                    </div>
+                </p-tabPanel>
+                <p-tabPanel header="Recebido">
+                    <div class="ui-g">
+                        <div class="ui-g-12 ui-md-12 ui-fluid" *ngFor="let movi of movimentacoes">
+                            <p>{{movi.dataCriacao | date:'dd/MM/yyyy'}}</p>
+                            <div class="ui-g-2 ui-md-1 ui-fluid" style="margin-left: -20px;">
+                                <ion-button style="width: 50px;height: 50px" class="b3" expand="block" fill="outline"><i
+                                        class="fas fa-store fa-1x"
+                                        style="color: #fdfafa"></i>
+                                </ion-button>
+                            </div>
+                            <div class="ui-g-5 ui-md-9 ui-fluid">
+                                <p style="margin-top: 5px;margin-left: 15px">{{movi.cliente2}}</p>
+                            </div>
+                            <div class="ui-g-5 ui-md-2 ui-fluid" style="margin-left: 20px;">
+                                <p style="{{movi.tipoMovimentacao == 'DEBITO'? '': 'color:#499c5f'}}" class="vf"> {{movi.tipoMovimentacao == "DEBITO" ? '-' : '+'}} {{movi.quantidadeSaldo | number:'1.2-2'}} Dbs</p>
+                            </div>
+                            <div class="ui-g-2 ui-md-1 ui-fluid">
+                            </div>
+                            <div class="ui-g-8 ui-md-8 ui-fluid">
+                                <p style="{{movi.estilo==='Retirada'?'width:200px':''}}" class="p3">{{movi.estilo}}</p>
+                            </div>
+                            <div class="ui-g-2 ui-md-3 ui-fluid">
+                            </div>
+                        </div>
+                    </div>
+                </p-tabPanel>
+                <p-tabPanel header="Enviado">
+                    <div class="ui-g">
+                        <div class="ui-g-12 ui-md-12 ui-fluid" *ngFor="let movi of movimentacoes">
+                            <p>{{movi.dataCriacao | date:'dd/MM/yyyy'}}</p>
+                            <div class="ui-g-2 ui-md-1 ui-fluid" style="margin-left: -20px;">
+                                <ion-button style="width: 50px;height: 50px" class="b3" expand="block" fill="outline"><i
+                                        class="fas fa-store fa-1x"
+                                        style="color: #fdfafa"></i>
+                                </ion-button>
+                            </div>
+                            <div class="ui-g-5 ui-md-9 ui-fluid">
+                                <p style="margin-top: 5px;margin-left: 15px">{{movi.cliente2}}</p>
+                            </div>
+                            <div class="ui-g-5 ui-md-2 ui-fluid" style="margin-left: 20px;">
+                                <p style="{{movi.tipoMovimentacao == 'DEBITO'? '': 'color:#499c5f'}}" class="vf"> {{movi.tipoMovimentacao == "DEBITO" ? '-' : '+'}} {{movi.quantidadeSaldo | number:'1.2-2'}} Dbs</p>
+                            </div>
+                            <div class="ui-g-2 ui-md-1 ui-fluid">
+                            </div>
+                            <div class="ui-g-8 ui-md-8 ui-fluid">
+                                <p class="p3">{{movi.estilo}}</p>
+                            </div>
+                            <div class="ui-g-2 ui-md-3 ui-fluid">
+                            </div>
+                        </div>
+                    </div>
+                </p-tabPanel>
+            </p-tabView>
+        </div>
+    </div>
+
+</ion-content>

@@ -5,6 +5,8 @@ import {PedirSaldoComponent} from './pedir-saldo/pedir-saldo.component';
 import {RetirarComponent} from './retirar/retirar.component';
 import {AuthGuard} from '../seguranca/auth.guard';
 import {TransferirComponent} from './transferir/transferir.component';
+import {EnviarAComponent} from './enviar-a/enviar-a.component';
+import {ConcluirEnvioComponent} from './concluir-envio/concluir-envio.component';
 
 const routes: Routes = [
     {
@@ -25,6 +27,16 @@ const routes: Routes = [
     {
         path: 'transferir',
         component: TransferirComponent ,
+        canActivate: [AuthGuard],
+    },
+    {
+        path: 'enviarA',
+        component: EnviarAComponent ,
+        canActivate: [AuthGuard],
+    },
+    {
+        path: 'concluirEnvio',
+        component: ConcluirEnvioComponent ,
         canActivate: [AuthGuard],
     },
 ];

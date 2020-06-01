@@ -1,0 +1,19 @@
+.box {
+  width: 50%;
+  float: left;
+  height: 50px;/*Altura da linha*/
+}
+
+ion-button.b1{
+  --background: #22749a;
+  --border-radius: 20px;
+  --border-color: #393939;
+  --border-width: 0.5px;
+}
+
+
+
+  .linha-vertical {
+    border-left: 2px solid;/* Adiciona borda esquerda na div como ser fosse uma linha.*/
+    box-sizing: border-box;
+  }
